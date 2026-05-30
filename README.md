@@ -2,9 +2,7 @@
 
 Personal portfolio website showcasing my projects, skills, and competitive programming achievements.
 
-🚀 Live Demo
-
-
+🚀 Deployed: https://personal-portfolio-beryl-five-75.vercel.app/
 
 ⚡ Tech Stack
 
