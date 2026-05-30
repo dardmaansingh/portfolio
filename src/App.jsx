@@ -14,7 +14,8 @@ import {
   Terminal,
   Server,
   Wrench,
-  Download
+  Download,
+  ExternalLink
 } from 'lucide-react'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -361,9 +362,10 @@ function PortfolioContent() {
             {[
               {
                 num: '01',
-                type: 'Premium Portfolio Website',
+                type: 'Personal Portfolio',
                 desc: 'A premium, fully interactive, and responsive portfolio showcasing skills, projects, and competitive programming achievements.',
                 link: 'https://personal-portfolio-beryl-five-75.vercel.app/',
+                github: 'https://github.com/dardmaansingh/portfolio',
                 isLive: true
               },
               {
@@ -416,13 +418,41 @@ function PortfolioContent() {
                     </span>
                   </div>
                   
-                  <div className="text-left mt-6 z-10">
-                    <h3 className="text-lg font-bold font-display text-text-base mb-1.5 group-hover:text-primary transition-colors">
-                      {proj.type}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed max-w-sm">
-                      {proj.desc}
-                    </p>
+                  <div className="text-left mt-6 z-10 flex flex-col justify-between flex-grow">
+                    <div>
+                      <h3 className="text-lg font-bold font-display text-text-base mb-1.5 group-hover:text-primary transition-colors">
+                        {proj.type}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-text-muted leading-relaxed max-w-sm">
+                        {proj.desc}
+                      </p>
+                    </div>
+                    {proj.isLive && (
+                      <div className="flex items-center gap-3 mt-4">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            window.open(proj.link, '_blank', 'noopener,noreferrer')
+                          }}
+                          className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary/80 transition-colors bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-lg border border-primary/20 cursor-pointer"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          Live Demo
+                        </button>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            window.open(proj.github, '_blank', 'noopener,noreferrer')
+                          }}
+                          className="flex items-center gap-1.5 text-xs font-semibold text-text-base hover:bg-white/10 dark:hover:bg-white/5 transition-all bg-card-bg border border-card-border px-3 py-1.5 rounded-lg cursor-pointer"
+                        >
+                          <Github className="w-3.5 h-3.5" />
+                          GitHub
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               )
