@@ -13,3 +13,6 @@ __unconfig*
 .vscode/
 .cta.json
 project_details.txt
+
+.vercel
+.env*
