@@ -111,10 +111,10 @@ function PortfolioContent() {
       </div>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 flex flex-col gap-20 sm:gap-28">
-        
+
         <section id="home" className="min-h-[75vh] flex flex-col justify-center py-6 sm:py-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -191,7 +191,7 @@ function PortfolioContent() {
                 className="relative"
               >
                 <div className="absolute inset-0 bg-signature-gradient opacity-35 blur-2xl rounded-full scale-105 animate-pulse" />
-                
+
                 <div className="organic-blob animate-float-portrait w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 border-[3px] border-primary/20 shadow-xl overflow-hidden relative">
                   <img
                     src="/dard.png"
@@ -222,7 +222,7 @@ function PortfolioContent() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
+
             <div className="lg:col-span-7 flex flex-col gap-6 text-center lg:text-left text-text-muted text-sm sm:text-base md:text-lg leading-relaxed font-sans">
               <p>
                 I'm <strong className="text-text-base font-semibold">Dardmaan Singh</strong>, a developer who enjoys building clean, fast, and accessible interfaces on the web. I started with frontend and I'm now expanding deeper into backend frameworks.
@@ -233,7 +233,7 @@ function PortfolioContent() {
               <p>
                 I love turning ideas into pixel-perfect experiences. If it can be designed and shipped, I want to be involved.
               </p>
-              
+
               <div className="mt-2 flex justify-center lg:justify-start">
                 <a
                   href="/assets/Dardmaan_Singh_Resume (1).docx"
@@ -325,7 +325,7 @@ function PortfolioContent() {
                     {category.title}
                   </h3>
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2 justify-start">
                   {category.skills.map((skill, sIdx) => (
                     <span
@@ -359,37 +359,74 @@ function PortfolioContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans">
             {[
-              { num: '01', type: 'Frontend Application' },
-              { num: '02', type: 'Fullstack Platform' },
-              { num: '03', type: 'Algorithmic Tool' },
-              { num: '04', type: 'System Integration' }
-            ].map((proj, idx) => (
-              <div
-                key={idx}
-                onClick={() => handleProjectClick(`Project ${proj.num}`)}
-                className="group relative flex flex-col justify-between p-8 rounded-2xl border border-dashed border-card-border bg-card-bg/20 hover:bg-card-bg/40 hover:border-primary/40 transition-all duration-300 cursor-pointer shadow-sm min-h-[190px] overflow-hidden"
-              >
-                <div className="absolute -right-10 -bottom-10 w-24 h-24 bg-primary/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500" />
-                
-                <div className="flex justify-between items-start">
-                  <span className="font-display text-4xl font-extrabold text-text-muted/10 group-hover:text-primary/20 transition-colors">
-                    {proj.num}
-                  </span>
-                  <span className="text-[9px] sm:text-[10px] uppercase font-extrabold tracking-widest px-2.5 py-1 rounded-md border border-primary/25 bg-primary/5 text-primary">
-                    Coming Soon
-                  </span>
+              {
+                num: '01',
+                type: 'Premium Portfolio Website',
+                desc: 'A premium, fully interactive, and responsive portfolio showcasing skills, projects, and competitive programming achievements.',
+                link: 'https://personal-portfolio-beryl-five-75.vercel.app/',
+                isLive: true
+              },
+              {
+                num: '02',
+                type: 'Fullstack Platform',
+                desc: 'This project space is currently reserved. Details and code repository will be revealed upon release.',
+                isLive: false
+              },
+              {
+                num: '03',
+                type: 'Algorithmic Tool',
+                desc: 'This project space is currently reserved. Details and code repository will be revealed upon release.',
+                isLive: false
+              },
+              {
+                num: '04',
+                type: 'System Integration',
+                desc: 'This project space is currently reserved. Details and code repository will be revealed upon release.',
+                isLive: false
+              }
+            ].map((proj, idx) => {
+              const cardClass = proj.isLive
+                ? "group relative flex flex-col justify-between p-8 rounded-2xl border border-card-border bg-card-bg/20 hover:bg-card-bg/40 hover:border-primary/40 transition-all duration-300 cursor-pointer shadow-sm min-h-[190px] overflow-hidden"
+                : "group relative flex flex-col justify-between p-8 rounded-2xl border border-dashed border-card-border bg-card-bg/20 hover:bg-card-bg/40 hover:border-primary/40 transition-all duration-300 cursor-pointer shadow-sm min-h-[190px] overflow-hidden"
+
+              return (
+                <div
+                  key={idx}
+                  onClick={() => {
+                    if (proj.isLive) {
+                      window.open(proj.link, '_blank', 'noopener,noreferrer')
+                    } else {
+                      handleProjectClick(`Project ${proj.num}`)
+                    }
+                  }}
+                  className={cardClass}
+                >
+                  <div className="absolute -right-10 -bottom-10 w-24 h-24 bg-primary/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500" />
+                  
+                  <div className="flex justify-between items-start">
+                    <span className="font-display text-4xl font-extrabold text-text-muted/10 group-hover:text-primary/20 transition-colors">
+                      {proj.num}
+                    </span>
+                    <span className={`text-[9px] sm:text-[10px] uppercase font-extrabold tracking-widest px-2.5 py-1 rounded-md border ${
+                      proj.isLive
+                        ? "border-emerald-500/25 bg-emerald-500/5 text-emerald-500"
+                        : "border-primary/25 bg-primary/5 text-primary"
+                    }`}>
+                      {proj.isLive ? 'Live' : 'Coming Soon'}
+                    </span>
+                  </div>
+                  
+                  <div className="text-left mt-6 z-10">
+                    <h3 className="text-lg font-bold font-display text-text-base mb-1.5 group-hover:text-primary transition-colors">
+                      {proj.type}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed max-w-sm">
+                      {proj.desc}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="text-left mt-6 z-10">
-                  <h3 className="text-lg font-bold font-display text-text-base mb-1.5 group-hover:text-primary transition-colors">
-                    {proj.type}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-text-muted leading-relaxed max-w-sm">
-                    This project space is currently reserved. Details and code repository will be revealed upon release.
-                  </p>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </motion.section>
 
@@ -413,9 +450,9 @@ function PortfolioContent() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch font-sans">
-            
+
             <div className="lg:col-span-5 flex flex-col justify-between gap-8">
-              
+
               <div
                 onClick={copyEmail}
                 className="group flex items-center justify-between p-5 rounded-2xl border border-card-border bg-card-bg/30 hover:bg-card-bg transition-all duration-300 cursor-pointer text-left shadow-sm shadow-glow-hover"
@@ -503,7 +540,7 @@ function PortfolioContent() {
                           className="w-full px-4 py-3 rounded-xl border border-input-border bg-input-bg text-text-base placeholder-text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm font-medium"
                         />
                       </div>
-                      
+
                       <div className="flex flex-col items-start gap-1.5">
                         <label htmlFor="email" className="text-xs font-semibold text-text-muted">
                           Your email
@@ -586,7 +623,7 @@ function PortfolioContent() {
                 )}
               </AnimatePresence>
             </div>
-            
+
           </div>
         </motion.section>
 
