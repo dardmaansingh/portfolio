@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+
+  --color-primary: var(--primary-color);
+  --color-bg-base: var(--bg-color);
+  --color-text-base: var(--text-color);
+  --color-text-muted: var(--text-muted);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-glow: var(--glow-color);
+  --color-nav-bg: var(--nav-bg);
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-border: var(--badge-border);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-color: #10131f;
+  --text-color: #f3f4f6;
+  --text-muted: #9ca3af;
+  --primary-color: #a855f7;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --glow-color: rgba(168, 85, 247, 0.35);
+  --nav-bg: rgba(16, 19, 31, 0.75);
+  --badge-bg: rgba(168, 85, 247, 0.15);
+  --badge-border: rgba(168, 85, 247, 0.3);
+  --input-bg: rgba(255, 255, 255, 0.03);
+  --input-border: rgba(255, 255, 255, 0.08);
+  
+  color-scheme: dark;
+}
+
+:root.light, :root[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: oklch(0.18 0.02 270);
+  --text-muted: oklch(0.45 0.02 270);
+  --primary-color: #a855f7;
+  --card-bg: rgba(0, 0, 0, 0.02);
+  --card-border: rgba(0, 0, 0, 0.06);
+  --glow-color: rgba(168, 85, 247, 0.15);
+  --nav-bg: rgba(255, 255, 255, 0.75);
+  --badge-bg: rgba(168, 85, 247, 0.08);
+  --badge-border: rgba(168, 85, 247, 0.15);
+  --input-bg: rgba(0, 0, 0, 0.01);
+  --input-border: rgba(0, 0, 0, 0.08);
+  
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-signature-gradient {
+  background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+}
+
+.border-signature-gradient {
+  border-image: linear-gradient(135deg, #a855f7, #c084fc) 1;
+}
+
+.shadow-glow-hover {
+  transition: all 0.3s ease;
+}
+.shadow-glow-hover:hover {
+  box-shadow: 0 0 25px var(--glow-color);
+  border-color: rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+}
+
+.organic-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  background: linear-gradient(135deg, #a855f7, #d8b4fe);
+}
+
+@keyframes float-portrait {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float-portrait {
+  animation: float-portrait 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(168, 85, 247, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.halo-glow {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.45;
+  background: radial-gradient(circle, #a855f7 0%, #c084fc 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: inherit;
+}
