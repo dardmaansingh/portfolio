@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { motion, AnimatePresence } from 'motion/react'
 import {
   ArrowRight,
@@ -45,19 +46,46 @@ function PortfolioContent() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault()
     if (!formData.name || !formData.email || !formData.message) {
       showToast('Please fill out all fields.', 'error')
       return
     }
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_v54tw5l'
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_3qbiw9k'
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'hvsQhEA9Bg4pfFZCZ'
+
+    if (!serviceId || !templateId || !publicKey) {
+      showToast('Contact form is not configured. Missing credentials.', 'error')
+      return
+    }
+
     setIsSubmitting(true)
-    setTimeout(() => {
+
+    try {
+      const result = await emailjs.sendForm(
+        serviceId,
+        templateId,
+        '#contact-form',
+        {
+          publicKey: publicKey
+        }
+      )
+
+      if (result.status === 200 || result.text === 'OK') {
+        setFormSubmitted(true)
+        showToast('Message sent successfully!', 'success')
+      } else {
+        showToast('Failed to send message. Please try again.', 'error')
+      }
+    } catch (error) {
+      showToast('A network error occurred. Please try again.', 'error')
+      console.error('Contact form submission error:', error)
+    } finally {
       setIsSubmitting(false)
-      setFormSubmitted(true)
-      showToast('Message sent successfully!', 'success')
-    }, 1500)
+    }
   }
 
   const handleProjectClick = (projectName) => {
@@ -547,6 +575,7 @@ function PortfolioContent() {
                 {!formSubmitted ? (
                   <motion.form
                     key="contact-form"
+                    id="contact-form"
                     onSubmit={handleFormSubmit}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

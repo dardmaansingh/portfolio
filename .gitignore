@@ -16,3 +16,4 @@ project_details.txt
 
 .vercel
 .env*
+!.env.example
