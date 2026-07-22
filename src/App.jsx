@@ -398,9 +398,11 @@ function PortfolioContent() {
               },
               {
                 num: '02',
-                type: 'Fullstack Platform',
-                desc: 'This project space is currently reserved. Details and code repository will be revealed upon release.',
-                isLive: false
+                type: 'React Frontend Project',
+                desc: 'Neuzy is a modern, responsive news platform built with React, presenting users with the latest headlines and articles.',
+                link: 'https://neuzy.vercel.app/',
+                github: 'https://github.com/dardmaansingh/Neuzy',
+                isLive: true
               },
               {
                 num: '03',
