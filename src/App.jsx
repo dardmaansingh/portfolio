@@ -392,7 +392,7 @@ function PortfolioContent() {
                 num: '01',
                 type: 'Personal Portfolio',
                 desc: 'A premium, fully interactive, and responsive portfolio showcasing skills, projects, and competitive programming achievements.',
-                link: 'https://personal-portfolio-beryl-five-75.vercel.app/',
+                link: 'https://portfolio-9xljh8dtw-dardmaan-singhs-projects.vercel.app/',
                 github: 'https://github.com/dardmaansingh/portfolio',
                 isLive: true
               },
