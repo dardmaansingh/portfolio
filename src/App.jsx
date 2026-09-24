@@ -7,7 +7,7 @@ import {
   GraduationCap,
   Github,
   Linkedin,
-  Instagram,
+  Twitter,
   Mail,
   Copy,
   Check,
@@ -171,7 +171,7 @@ function PortfolioContent() {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="text-lg sm:text-xl md:text-2xl font-bold font-sans text-text-base mb-6"
               >
-                I'm a <span className="text-primary font-display font-bold">Web Developer</span>
+                I'm a <span className="text-primary font-display font-bold">MERN Stack Developer</span>
               </motion.h2>
 
               <motion.p
@@ -180,7 +180,7 @@ function PortfolioContent() {
                 transition={{ delay: 0.3, duration: 0.5 }}
                 className="text-sm sm:text-base md:text-lg text-text-muted mb-8 max-w-lg leading-relaxed font-sans"
               >
-                A frontend web developer expanding into backend frameworks, constantly learning, and always up for tricky competitive programming challenges.
+                A MERN stack developer building full-stack web apps with MongoDB, Express, React, and Node.js — backed by strong DSA fundamentals and competitive programming experience.
               </motion.p>
 
               <motion.div
@@ -254,13 +254,13 @@ function PortfolioContent() {
 
             <div className="lg:col-span-7 flex flex-col gap-6 text-center lg:text-left text-text-muted text-sm sm:text-base md:text-lg leading-relaxed font-sans">
               <p>
-                I'm <strong className="text-text-base font-semibold">Dardmaan Singh</strong>, a developer who enjoys building clean, fast, and accessible interfaces on the web. I started with frontend and I'm now expanding deeper into backend frameworks.
+                I'm <strong className="text-text-base font-semibold">Dardmaan Singh</strong>, a MERN stack developer who builds full-stack web applications with <strong className="text-text-base font-semibold">MongoDB, Express, React, and Node.js</strong>. I care about clean architecture, fast performance, and accessible interfaces.
               </p>
               <p>
-                Outside of building products, I spend time solving algorithmic problems and participating in competitive programming contests — it keeps my problem-solving sharp and brings discipline to how I write code.
+                Outside of shipping products, I spend time solving algorithmic problems on LeetCode and Codeforces — it keeps my problem-solving sharp and brings discipline to how I write code.
               </p>
               <p>
-                I love turning ideas into pixel-perfect experiences. If it can be designed and shipped, I want to be involved.
+                I love turning ideas into real, working products. If it can be designed, built, and deployed — I want to be the one doing it.
               </p>
 
               <div className="mt-2 flex justify-center lg:justify-start">
@@ -279,7 +279,7 @@ function PortfolioContent() {
               {[
                 {
                   icon: Trophy,
-                  value: '200+',
+                  value: '300+',
                   label: 'CP Problems Solved'
                 },
                 {
@@ -551,9 +551,9 @@ function PortfolioContent() {
                       label: 'GitHub'
                     },
                     {
-                      icon: Instagram,
-                      href: 'https://instagram.com',
-                      label: 'Instagram'
+                      icon: Twitter,
+                      href: 'https://x.com/singhdardmaan',
+                      label: 'Twitter / X'
                     }
                   ].map((soc, i) => (
                     <a
