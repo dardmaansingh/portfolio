@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -30,6 +30,15 @@ export default function Footer() {
             aria-label="LinkedIn"
           >
             <Linkedin className="w-5 h-5" />
+          </a>
+          <a
+            href="https://x.com/singhdardmaan"
+            target="_blank"
+            rel="noreferrer"
+            className="p-2 rounded-xl border border-card-border bg-card-bg hover:bg-white/10 dark:hover:bg-white/5 text-text-muted hover:text-text-base hover:scale-110 transition-all duration-200"
+            aria-label="Twitter / X"
+          >
+            <Twitter className="w-5 h-5" />
           </a>
           <a
             href="mailto:dmaanwork@gmail.com"
