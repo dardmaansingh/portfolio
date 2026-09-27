@@ -263,14 +263,23 @@ function PortfolioContent() {
                 I love turning ideas into real, working products. If it can be designed, built, and deployed — I want to be the one doing it.
               </p>
 
-              <div className="mt-2 flex justify-center lg:justify-start">
+              <div className="mt-2 flex flex-wrap justify-center lg:justify-start gap-3">
                 <a
-                  href="/assets/Dardmaan_Singh_Resume (1).docx"
+                  href="/assets/Dardmaan_Singh_Resume.docx"
                   download="Dardmaan_Singh_Resume.docx"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-card-border bg-card-bg hover:bg-white/10 dark:hover:bg-white/5 text-text-base text-xs sm:text-sm font-semibold transition-all hover:scale-105 cursor-pointer duration-200 shadow-sm"
                 >
                   <Download className="w-4 h-4 text-primary" />
-                  Download Resume (.docx)
+                  Download Resume
+                </a>
+                <a
+                  href="https://docs.google.com/viewer?url=https://dardmaan.vercel.app/assets/Dardmaan_Singh_Resume.docx"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/5 hover:bg-primary/10 text-primary text-xs sm:text-sm font-semibold transition-all hover:scale-105 cursor-pointer duration-200 shadow-sm"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  View Resume
                 </a>
               </div>
             </div>

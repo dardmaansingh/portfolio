@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my projects, skills, and competitive programming achievements.
 
-🚀 Deployed: https://personal-portfolio-beryl-five-75.vercel.app/
+🚀 Deployed: https://dardmaan.vercel.app/
 
 ⚡ Tech Stack
 
