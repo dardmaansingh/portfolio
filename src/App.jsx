@@ -273,7 +273,7 @@ function PortfolioContent() {
                   Download Resume
                 </a>
                 <a
-                  href="https://docs.google.com/viewer?url=https://dardmaan.vercel.app/assets/Dardmaan_Singh_Resume.docx"
+                  href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdardmaan.vercel.app%2Fassets%2FDardmaan_Singh_Resume.docx"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/5 hover:bg-primary/10 text-primary text-xs sm:text-sm font-semibold transition-all hover:scale-105 cursor-pointer duration-200 shadow-sm"
