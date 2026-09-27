@@ -265,15 +265,15 @@ function PortfolioContent() {
 
               <div className="mt-2 flex flex-wrap justify-center lg:justify-start gap-3">
                 <a
-                  href="/assets/Dardmaan_Singh_Resume.docx"
-                  download="Dardmaan_Singh_Resume.docx"
+                  href="/assets/Resume.docx"
+                  download="Resume.docx"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-card-border bg-card-bg hover:bg-white/10 dark:hover:bg-white/5 text-text-base text-xs sm:text-sm font-semibold transition-all hover:scale-105 cursor-pointer duration-200 shadow-sm"
                 >
                   <Download className="w-4 h-4 text-primary" />
                   Download Resume
                 </a>
                 <a
-                  href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdardmaan.vercel.app%2Fassets%2FDardmaan_Singh_Resume.docx"
+                  href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdardmaan.vercel.app%2Fassets%2FResume.docx"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/5 hover:bg-primary/10 text-primary text-xs sm:text-sm font-semibold transition-all hover:scale-105 cursor-pointer duration-200 shadow-sm"
