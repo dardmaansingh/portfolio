@@ -340,7 +340,7 @@ function PortfolioContent() {
               {
                 title: 'Frontend',
                 icon: Terminal,
-                skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Tailwind CSS', 'Next.js']
+                skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Tailwind CSS', 'Next.js', 'Three.js']
               },
               {
                 title: 'Backend',
@@ -415,9 +415,11 @@ function PortfolioContent() {
               },
               {
                 num: '03',
-                type: 'Algorithmic Tool',
-                desc: 'This project space is currently reserved. Details and code repository will be revealed upon release.',
-                isLive: false
+                type: 'OrbitBoard — 3D Habit Tracker',
+                desc: 'A habit tracking web app where you can track your habit status by visualizing planets orbiting the sun, built using Three.js.',
+                link: 'https://orbitbourd.vercel.app/',
+                github: 'https://github.com/dardmaansingh/OrbitBoard',
+                isLive: true
               },
               {
                 num: '04',
