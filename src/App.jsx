@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import ResumeModal from './components/ResumeModal'
 import { ToastProvider, useToast } from './components/CustomToast'
 import {
   ReactIcon,
@@ -46,9 +47,8 @@ import {
 } from './components/TechIcons'
 import {
   BrowserHeader,
-  PortfolioPreview,
-  NeuzyPreview,
-  OrbitBoardPreview
+  YuBuPreview,
+  NeuzyPreview
 } from './components/ProjectPreviews'
 
 const fadeInUp = {
@@ -60,6 +60,7 @@ function PortfolioContent() {
   const { showToast } = useToast()
   const [copied, setCopied] = useState(false)
   const [showDirectForm, setShowDirectForm] = useState(false)
+  const [showResumeModal, setShowResumeModal] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -334,22 +335,21 @@ function PortfolioContent() {
 
               <div className="mt-2 flex flex-wrap justify-center lg:justify-start gap-3">
                 <a
-                  href="/assets/Resume.docx"
-                  download="Resume.docx"
+                  href="/assets/Dardmaan_Singh_Resume.docx"
+                  download="Dardmaan_Singh_Resume.docx"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-card-border bg-card-bg hover:bg-white/10 dark:hover:bg-white/5 text-text-base text-xs sm:text-sm font-semibold transition-all hover:scale-105 cursor-pointer duration-200 shadow-sm"
                 >
                   <Download className="w-4 h-4 text-primary" />
                   Download Resume
                 </a>
-                <a
-                  href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdardmaan.vercel.app%2Fassets%2FResume.docx"
-                  target="_blank"
-                  rel="noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setShowResumeModal(true)}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/5 hover:bg-primary/10 text-primary text-xs sm:text-sm font-semibold transition-all hover:scale-105 cursor-pointer duration-200 shadow-sm"
                 >
                   <ExternalLink className="w-4 h-4" />
                   View Resume
-                </a>
+                </button>
               </div>
             </div>
 
@@ -454,27 +454,27 @@ function PortfolioContent() {
             </h2>
           </div>
 
-          {/* Featured Live Projects - Top Row from Screenshot 1 */}
+          {/* Featured Live Projects - Top Row */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 font-sans">
-            {/* Project 1: Personal Portfolio */}
+            {/* Project 1: YuBu – Peer Resume Review Platform */}
             <div className="flex flex-col justify-between rounded-3xl border border-card-border bg-[#0e111d]/90 hover:border-primary/40 transition-all duration-300 shadow-xl hover:shadow-primary/10 overflow-hidden group">
               <div className="overflow-hidden border-b border-card-border/60">
-                <BrowserHeader url="dardmaan.vercel.app" />
-                <PortfolioPreview />
+                <BrowserHeader url="yu-bu-g8nd.vercel.app/login" />
+                <YuBuPreview />
               </div>
 
               <div className="p-6 sm:p-7 flex flex-col justify-between flex-grow gap-5">
                 <div>
                   <h3 className="text-xl sm:text-2xl font-bold font-display text-text-base mb-2 group-hover:text-primary transition-colors">
-                    Personal Portfolio
+                    YuBu – Peer Resume Review Platform
                   </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
-                    A premium, fully interactive, and responsive portfolio showcasing skills, projects, and competitive programming achievements.
+                    Full-stack peer resume review platform built with the MERN stack and Cloudinary. Features embedded PDF previews, 1–5 star ratings, section-wise feedback, and secure JWT authentication.
                   </p>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'Tailwind CSS', 'Vite'].map((tag) => (
+                  {['React', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary'].map((tag) => (
                     <span
                       key={tag}
                       className="px-3 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-medium"
@@ -486,7 +486,7 @@ function PortfolioContent() {
 
                 <div className="flex items-center gap-3 pt-1">
                   <a
-                    href="https://portfolio-9xljh8dtw-dardmaan-singhs-projects.vercel.app/"
+                    href="https://yu-bu-g8nd.vercel.app/login"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-white text-xs sm:text-sm bg-[#8b5cf6] hover:bg-[#7c3aed] transition-all shadow-md hover:shadow-purple-500/25 cursor-pointer"
@@ -495,7 +495,7 @@ function PortfolioContent() {
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                   <a
-                    href="https://github.com/dardmaansingh/portfolio"
+                    href="https://github.com/dardmaansingh/YuBu"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-text-base text-xs sm:text-sm border border-card-border bg-card-bg hover:bg-white/10 dark:hover:bg-white/5 transition-all cursor-pointer"
@@ -520,7 +520,7 @@ function PortfolioContent() {
                     Neuzy
                   </h3>
                   <p className="text-sm text-text-muted leading-relaxed">
-                    A modern, responsive news platform built with React, presenting users with the latest headlines and articles.
+                    An editorial-style news platform built with React and Tailwind CSS, featuring dual-API real-time news & weather data, category filters, and bookmarking.
                   </p>
                 </div>
 
@@ -555,57 +555,6 @@ function PortfolioContent() {
                     GitHub
                   </a>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Project 3: OrbitBoard (Live 3D Habit Tracker with Browser Mockup) */}
-          <div className="flex flex-col justify-between rounded-3xl border border-card-border bg-[#0e111d]/90 hover:border-primary/40 transition-all duration-300 shadow-xl hover:shadow-primary/10 overflow-hidden group font-sans">
-            <div className="overflow-hidden border-b border-card-border/60">
-              <BrowserHeader url="orbitbourd.vercel.app" />
-              <OrbitBoardPreview />
-            </div>
-
-            <div className="p-6 sm:p-7 flex flex-col justify-between flex-grow gap-5">
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold font-display text-text-base mb-2 group-hover:text-primary transition-colors">
-                  OrbitBoard — 3D Habit Tracker
-                </h3>
-                <p className="text-sm text-text-muted leading-relaxed">
-                  A habit tracking web app where you track habit status by visualizing planets orbiting the sun in real-time, built using Three.js.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {['React', 'Three.js', 'Tailwind CSS'].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-medium"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-3 pt-1">
-                <a
-                  href="https://orbitbourd.vercel.app/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-white text-xs sm:text-sm bg-[#8b5cf6] hover:bg-[#7c3aed] transition-all shadow-md hover:shadow-purple-500/25 cursor-pointer"
-                >
-                  Live Demo
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href="https://github.com/dardmaansingh/OrbitBoard"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-text-base text-xs sm:text-sm border border-card-border bg-card-bg hover:bg-white/10 dark:hover:bg-white/5 transition-all cursor-pointer"
-                >
-                  <Github className="w-4 h-4" />
-                  GitHub
-                </a>
               </div>
             </div>
           </div>
@@ -878,6 +827,12 @@ function PortfolioContent() {
             </div>
           </div>
         </motion.section>
+
+        {/* Interactive ATS Resume Preview Modal */}
+        <ResumeModal
+          isOpen={showResumeModal}
+          onClose={() => setShowResumeModal(false)}
+        />
 
       </main>
     </div>

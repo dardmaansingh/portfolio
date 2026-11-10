@@ -16,6 +16,99 @@ export function BrowserHeader({ url }) {
   )
 }
 
+// Crisp, authentic mini-preview for YuBu – Peer Resume Review Platform
+export function YuBuPreview() {
+  return (
+    <div className="relative w-full aspect-[16/10] bg-[#0c1020] text-white overflow-hidden select-none font-sans flex flex-col justify-between p-3 sm:p-4">
+      {/* Subtle background glow */}
+      <div className="absolute top-0 right-0 w-44 h-44 bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-36 h-36 bg-emerald-600/10 rounded-full blur-2xl pointer-events-none" />
+
+      {/* Mini App Header */}
+      <div className="flex items-center justify-between border-b border-white/10 pb-2 relative z-10 text-[8px] sm:text-[9px]">
+        <div className="flex items-center gap-2">
+          <span className="font-extrabold tracking-tight text-white text-xs sm:text-sm">
+            Yu<span className="text-violet-400">Bu</span>
+          </span>
+          <span className="hidden sm:inline-block px-1.5 py-0.5 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-300 text-[6.5px] font-medium">
+            Peer Review
+          </span>
+        </div>
+        <div className="flex items-center gap-2 text-[7px] sm:text-[8px] text-gray-300 font-mono">
+          <span className="flex items-center gap-1 text-amber-400 font-bold">
+            ★ 4.9
+          </span>
+          <span className="text-gray-500">|</span>
+          <span className="text-emerald-400 font-semibold">+42 Rep</span>
+        </div>
+      </div>
+
+      {/* Mini Workstation Body: Split Resume Viewer & Peer Review Panel */}
+      <div className="grid grid-cols-12 gap-2 my-auto relative z-10 text-left">
+        {/* Left Col: Embedded PDF Resume Card */}
+        <div className="col-span-7 bg-[#141829] border border-white/10 rounded-lg p-2 flex flex-col gap-1.5 shadow-md">
+          <div className="flex items-center justify-between border-b border-white/5 pb-1">
+            <div className="flex items-center gap-1">
+              <span className="px-1 py-0.5 rounded bg-red-500/20 text-red-400 text-[5.5px] font-bold">PDF</span>
+              <span className="text-[6.5px] sm:text-[7.5px] font-medium text-gray-200 truncate max-w-[90px] sm:max-w-[120px]">
+                Resume_FullStack.pdf
+              </span>
+            </div>
+            <span className="text-[5.5px] text-emerald-400 font-mono">Cloudinary</span>
+          </div>
+
+          {/* Mini Resume Document Content */}
+          <div className="bg-[#0e1220] rounded p-1.5 border border-white/5 flex flex-col gap-1 text-[5.5px] sm:text-[6.5px]">
+            <div className="flex justify-between items-center">
+              <span className="font-bold text-gray-200">Alex Sharma</span>
+              <span className="text-gray-400 text-[5px]">MERN Developer</span>
+            </div>
+            <div className="h-0.5 bg-violet-500/40 rounded w-full" />
+            <div className="flex flex-col gap-0.5 text-gray-400 text-[5px] sm:text-[6px]">
+              <div className="flex items-center gap-1">
+                <span className="w-1 h-1 rounded-full bg-violet-400" />
+                <span className="text-gray-300 font-medium">Experience: Full-Stack Intern</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="w-1 h-1 rounded-full bg-emerald-400" />
+                <span className="text-gray-300 font-medium">Projects: 3 MERN Applications</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Col: Peer Review & Feedback Panel */}
+        <div className="col-span-5 bg-[#141829] border border-white/10 rounded-lg p-2 flex flex-col justify-between shadow-md">
+          <div className="flex flex-col gap-1">
+            <div className="flex items-center justify-between">
+              <span className="text-[6.5px] sm:text-[7.5px] font-bold text-gray-200">Peer Feedback</span>
+              <div className="flex text-amber-400 text-[6.5px] sm:text-[8px]">★★★★★</div>
+            </div>
+
+            <div className="bg-[#0e1220] rounded p-1 border border-white/5 text-[5.5px] sm:text-[6px] text-gray-300 leading-tight">
+              "Great project stack! Add quantifiable metrics to your resume bullet points."
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between pt-1 border-t border-white/5 text-[5px] sm:text-[6px]">
+            <span className="text-violet-400 font-medium">verifyJWT Protected</span>
+            <span className="px-1 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">1 Review / User</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Mini Footer Bar */}
+      <div className="flex items-center justify-between text-[6.5px] sm:text-[7px] text-gray-400 border-t border-white/10 pt-1.5 relative z-10">
+        <span className="flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span>MERN · Cloudinary · REST API v1</span>
+        </span>
+        <span className="font-mono text-violet-300">Reputation System Active</span>
+      </div>
+    </div>
+  )
+}
+
 // Crisp, authentic mini-preview for Personal Portfolio
 export function PortfolioPreview() {
   return (
